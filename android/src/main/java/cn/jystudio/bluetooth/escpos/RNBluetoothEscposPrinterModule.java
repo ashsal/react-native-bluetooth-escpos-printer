@@ -145,10 +145,13 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
                 fonttype = options.hasKey("fonttype") ? options.getInt("fonttype") : 0;
             }
             String toPrint = text;
-//            if ("UTF-8".equalsIgnoreCase(encoding)) {
-//                byte[] b = text.getBytes("UTF-8");
-//                toPrint = new String(b, Charset.forName(encoding));
-//            }
+             System.out.println("Ashish is in react native android code");
+
+            if ("UTF-8".equalsIgnoreCase(encoding)) {
+                byte[] b = text.getBytes("UTF-8");
+                toPrint = new String(b, Charset.forName(encoding));
+            }
+             System.out.println("Ashish is in react native android code");
 
             byte[] bytes = PrinterCommand.POS_Print_Text(toPrint, encoding, codepage, widthTimes, heigthTimes, fonttype);
             if (sendDataByte(bytes)) {
